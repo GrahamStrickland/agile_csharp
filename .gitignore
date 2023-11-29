@@ -24,7 +24,9 @@ CppProperties.json
 *.vcxproj
 *.vcxproj.*
 *.sln
+*.csproj
 \x64
+\obj
 
 # Eclipse files
 .classpath
