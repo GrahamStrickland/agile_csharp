@@ -25,6 +25,12 @@ CppProperties.json
 *.vcxproj.*
 *.sln
 *.csproj
+*.dll
+*.exe
+*.pdb
+*.deps.json
+*.runtimeconfig.json
+*.xml
 \x64
 \obj
 
