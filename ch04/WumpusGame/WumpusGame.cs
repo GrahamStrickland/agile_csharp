@@ -2,9 +2,9 @@
 {
     private const int NUM_DIRECTIONS = 4;
     private enum Direction { North, East, South, West };
-    private int _numRooms;
+    private readonly int _numRooms;
     private int _playerRoom;
-    private int[][] _connections;
+    private readonly int[][] _connections;
 
     public WumpusGame()
     {
@@ -79,7 +79,7 @@
     {
         if (_connections[_playerRoom][(int)Direction.East] != -1)
         {
-            _playerRoom = _connections[_playerRoom][(int)Direction.North];
+            _playerRoom = _connections[_playerRoom][(int)Direction.East];
         }
         else
         {
@@ -91,7 +91,7 @@
     {
         if (_connections[_playerRoom][(int)Direction.South] != -1)
         {
-            _playerRoom = _connections[_playerRoom][(int)Direction.North];
+            _playerRoom = _connections[_playerRoom][(int)Direction.South];
         }
         else
         {
@@ -102,7 +102,7 @@
     {
         if (_connections[_playerRoom][(int)Direction.West] != -1)
         {
-            _playerRoom = _connections[_playerRoom][(int)Direction.North];
+            _playerRoom = _connections[_playerRoom][(int)Direction.West];
         }
         else
         {

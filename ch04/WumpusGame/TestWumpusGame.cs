@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 internal class TestWumpusGame
 {
@@ -8,12 +9,12 @@ internal class TestWumpusGame
     } 
 
     [Test]
-    public void TestMove()
+    public static void TestMove()
     {
         WumpusGame g = new WumpusGame();
         g.Connect(4, 5, "E");
         g.SetPlayerRoom(4);
         g.East();
-        Assert.Equals(5, g.GetPlayerRoom());
+        Assert.AreEqual(5, g.GetPlayerRoom());
     }
 }
