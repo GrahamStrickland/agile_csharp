@@ -1,18 +1,29 @@
-﻿namespace Payroll.Mocks;
+﻿using Payroll.Interfaces;
 
-public class MockEmployee : IEmployee
+namespace Payroll.Mocks;
+
+public class MockEmployee(string name) : IEmployee
 {
+    private string _name = name;
+    private int _payCheck;
+    
+    public string GetName() 
+    {
+        return _name;
+    }
+
     public void CalculatePay()
     {
-        throw new NotImplementedException();
+        _payCheck = 1000;
     }
 
     public void PostPayment()
     {
-        throw new NotImplementedException();
+        _payCheck = 0;
     }
 
-    public bool PaymentsWereNotPostedCorrectly() {
-        throw new NotImplementedException();
-    }   
+    public bool PaymentsWereNotPostedCorrectly()
+    {
+        return _payCheck != 0;
+    }
 }

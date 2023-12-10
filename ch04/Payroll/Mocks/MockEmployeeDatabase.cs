@@ -4,17 +4,24 @@ namespace Payroll.Mocks;
 
 public class MockEmployeeDatabase : IEmployeeDatabase
 {
-    public IEmployee GetEmployee()
+    private List<IEmployee> _employees;
+
+    public MockEmployeeDatabase()
     {
-        throw new NotImplementedException();
+        _employees = [];
     }
 
-    public void putEmployee(IEmployee employee)
+    public IEmployee? GetEmployee(string employeeName)
     {
-        throw new NotImplementedException();
+        return _employees.Find(employee => employee.GetName() == employeeName); 
+    }
+
+    public void PutEmployee(IEmployee employee)
+    {
+        _employees = (List<IEmployee>)_employees.Append(employee);
     }
 
     public bool PaymentsWerePostedCorrectly() {
-        throw new NotImplementedException();
+        return _employees.Any(employee => employee.PaymentsWereNotPostedCorrectly()); 
     }
 }

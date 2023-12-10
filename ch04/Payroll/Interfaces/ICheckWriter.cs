@@ -1,4 +1,4 @@
-﻿namespace Payroll;
+﻿namespace Payroll.Interfaces;
 
 public interface ICheckWriter
 {

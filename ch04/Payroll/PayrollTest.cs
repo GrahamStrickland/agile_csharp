@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Payroll.Mocks;
+
+using NUnit.Framework;
 
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
@@ -15,5 +17,4 @@ public class PayrollTest
         Assert.IsTrue(w.ChecksWereWrittenCorrectly());
         Assert.IsTrue(db.PaymentsWerePostedCorrectly());
     }
-    
 }
