@@ -8,8 +8,13 @@ namespace Payroll;
 
 public class PayrollTest
 {
+    public static void Main(string[] args)
+    {
+        TestPayroll();
+    }
+
     [Test]
-    public void TestPayroll()
+    public static void TestPayroll()
     {
         MockEmployeeDatabase db = new MockEmployeeDatabase();
         MockCheckWriter w = new MockCheckWriter();

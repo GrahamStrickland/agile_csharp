@@ -13,9 +13,15 @@ public class Payroll
         this.checkWriter = checkWriter;
     }
 
-    public void PayEmployees()
+    public void PayEmployees(string employeeName)
     {
-        IEmployee employee = employeeDatabase.GetEmployee();
+        IEmployee? employee = employeeDatabase.GetEmployee(employeeName);
+
+        if (employee == null)
+        {
+            throw new Exception("No such employee");
+        }
+
         checkWriter.WriteCheck();
         employeeDatabase.PutEmployee(employee);
     }
