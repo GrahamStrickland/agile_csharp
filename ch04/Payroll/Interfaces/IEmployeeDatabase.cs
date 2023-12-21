@@ -1,4 +1,4 @@
-﻿namespace Payroll.Interfaces;
+﻿namespace PayrollExample.Interfaces;
 
 public interface IEmployeeDatabase
 {

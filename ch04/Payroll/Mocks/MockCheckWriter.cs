@@ -1,6 +1,6 @@
-﻿using Payroll.Interfaces;
+﻿using PayrollExample.Interfaces;
 
-namespace Payroll.Mocks;
+namespace PayrollExample.Mocks;
 
 public class MockCheckWriter : ICheckWriter 
 {
@@ -12,16 +12,19 @@ public class MockCheckWriter : ICheckWriter
         _checkBuffer = [];
     }
 
-    public void WriteCheck()
+    public void WriteCheck(double value)
     {
         var checkStr = _checkNum.ToString().PadLeft(3);
-        _checkBuffer.Append("MockCheck" + checkStr);
+        _checkBuffer.Append("MockCheck" + checkStr + ": $" + value.ToString(
+            "C",
+            new System.Globalization.CultureInfo("en-US")
+        ));
         _checkNum++;
     }
 
     public bool ChecksWereWrittenCorrectly()
     {
         return _checkBuffer.Count > 1 &&
-            _checkBuffer.Last() == "MockCheck" + _checkNum.ToString().PadLeft(3);
+            _checkBuffer.Last() == "MockCheck" + _checkNum.ToString().PadLeft(3) + ": $1,000.00";
     }
 }

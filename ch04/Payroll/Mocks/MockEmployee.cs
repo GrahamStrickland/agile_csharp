@@ -1,29 +1,31 @@
-﻿using Payroll.Interfaces;
+﻿using PayrollExample.Interfaces;
 
-namespace Payroll.Mocks;
+namespace PayrollExample.Mocks;
 
 public class MockEmployee(string name) : IEmployee
 {
     private string _name = name;
-    private int _payCheck;
+    private double _payCheck;
     
     public string GetName() 
     {
         return _name;
     }
 
-    public void CalculatePay()
+    public double CalculatePay()
     {
-        _payCheck = 1000;
+        _payCheck = 1000.00;
+
+        return _payCheck;
     }
 
-    public void PostPayment()
+    public void PostPayment(double payment)
     {
-        _payCheck = 0;
+        _payCheck -= payment;
     }
 
     public bool PaymentsWereNotPostedCorrectly()
     {
-        return _payCheck != 0;
+        return _payCheck != 0.0;
     }
 }

@@ -1,6 +1,6 @@
-﻿using Payroll.Interfaces;
+﻿using PayrollExample.Interfaces;
 
-namespace Payroll.Mocks;
+namespace PayrollExample.Mocks;
 
 public class MockEmployeeDatabase : IEmployeeDatabase
 {
@@ -18,7 +18,7 @@ public class MockEmployeeDatabase : IEmployeeDatabase
 
     public void PutEmployee(IEmployee employee)
     {
-        _employees = (List<IEmployee>)_employees.Append(employee);
+        _employees.Append(employee);
     }
 
     public bool PaymentsWerePostedCorrectly() {

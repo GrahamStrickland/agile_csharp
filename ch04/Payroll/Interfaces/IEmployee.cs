@@ -1,12 +1,12 @@
-﻿namespace Payroll.Interfaces;
+﻿namespace PayrollExample.Interfaces;
 
 public interface IEmployee
 {
     public string GetName();
 
-    public void CalculatePay();
+    public double CalculatePay();
 
-    public void PostPayment();
+    public void PostPayment(double payment);
 
     public bool PaymentsWereNotPostedCorrectly();
 }
