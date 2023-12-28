@@ -5,7 +5,7 @@ namespace PayrollExample.Mocks;
 public class MockEmployee(string name) : IEmployee
 {
     private string _name = name;
-    private double _payCheck;
+    private double _payDue = 0.0;
     
     public string GetName() 
     {
@@ -14,18 +14,18 @@ public class MockEmployee(string name) : IEmployee
 
     public double CalculatePay()
     {
-        _payCheck = 1000.00;
+        _payDue = 1000.00;
 
-        return _payCheck;
+        return _payDue;
     }
 
     public void PostPayment(double payment)
     {
-        _payCheck -= payment;
+        _payDue -= payment;
     }
 
     public bool PaymentsWereNotPostedCorrectly()
     {
-        return _payCheck != 0.0;
+        return _payDue != 0.0;
     }
 }

@@ -32,7 +32,6 @@ public class Payroll
                 checkWriter.WriteCheck(pay);
             }
         }
-
     }
 
     public static void Main()

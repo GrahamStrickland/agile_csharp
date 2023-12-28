@@ -14,17 +14,21 @@ public class MockCheckWriter : ICheckWriter
 
     public void WriteCheck(double value)
     {
-        var checkStr = _checkNum.ToString().PadLeft(3);
-        _checkBuffer.Append("MockCheck" + checkStr + ": $" + value.ToString(
-            "C",
-            new System.Globalization.CultureInfo("en-US")
-        ));
+        var checkStr = _checkNum.ToString().PadLeft(3, '0');
+        _checkBuffer =
+        [
+            .. _checkBuffer,
+            "MockCheck" + checkStr + ": " + value.ToString(
+                "C",
+                new System.Globalization.CultureInfo("en-US")
+            ),
+        ];
         _checkNum++;
     }
 
     public bool ChecksWereWrittenCorrectly()
     {
-        return _checkBuffer.Count > 1 &&
-            _checkBuffer.Last() == "MockCheck" + _checkNum.ToString().PadLeft(3) + ": $1,000.00";
+        return _checkBuffer.Count >= 1 &&
+            _checkBuffer.Last() == "MockCheck001: $1,000.00";
     }
 }

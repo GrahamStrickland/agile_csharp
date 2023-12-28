@@ -18,10 +18,10 @@ public class MockEmployeeDatabase : IEmployeeDatabase
 
     public void PutEmployee(IEmployee employee)
     {
-        _employees.Append(employee);
+        _employees = [.. _employees, employee];
     }
 
     public bool PaymentsWerePostedCorrectly() {
-        return _employees.Any(employee => employee.PaymentsWereNotPostedCorrectly()); 
+        return !_employees.Any(employee => employee.PaymentsWereNotPostedCorrectly()); 
     }
 }
