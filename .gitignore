@@ -21,10 +21,15 @@
 
 # Visual Studio files
 CppProperties.json
+*.vsidx
+*.wsuo
 *.dll
 *.exe
 *.pdb
+*.sqlite
 *.deps.json
+ProjectSettings.json
+VSWorkspaceState.json
 *.runtimeconfig.json
 *.xml
 \x64
