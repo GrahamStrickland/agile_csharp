@@ -21,10 +21,6 @@
 
 # Visual Studio files
 CppProperties.json
-*.vcxproj
-*.vcxproj.*
-*.sln
-*.csproj
 *.dll
 *.exe
 *.pdb
