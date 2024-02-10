@@ -18,6 +18,7 @@
 .vs
 *.code-workspace
 *.vscode
+*.tmp
 
 # Visual Studio files
 CppProperties.json
