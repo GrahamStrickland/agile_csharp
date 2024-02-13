@@ -35,6 +35,7 @@ VSWorkspaceState.json
 *.xml
 \x64
 \obj
+\bin
 
 # Eclipse files
 .classpath
