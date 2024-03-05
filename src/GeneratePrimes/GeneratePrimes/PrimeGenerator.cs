@@ -69,24 +69,23 @@ public class PrimeGenerator
 
     private static void PutUncrossedIntegersIntoResult()
     {
-        int i;
-        int j;
-        // how many primes are there?
-        int count = 0;
-        for (i = 2; i < isCrossed.Length; i++)
+        result = new int[NumberOfUncrossedIntegers()];
+        for (int j = 0, i = 2; i < isCrossed.Length; i++)
         {
             if (NotCrossed(i))
-                count++;    // bump count
-        }
-
-        result = new int[count];
-
-        // move the primes into the result
-        for (i = 2, j = 0; i < isCrossed.Length; i++)
-        {
-            if (NotCrossed(i))               // if prime
                 result[j++] = i;
         }
+    }
+
+    private static int NumberOfUncrossedIntegers()
+    {
+        int count = 0;
+        for (int i = 2; i < isCrossed.Length; i++)
+        {
+            if (NotCrossed(i))
+                count++;    // bump count.
+        }
+        return count;
     }
 
     private static bool NotCrossed(int i)
